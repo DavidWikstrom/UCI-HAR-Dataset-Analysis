@@ -94,12 +94,12 @@ for ( dataSubsetName in dataSubsetNames )
 }
 
 ## Save the tidy data set to a file
-write.table(dataSet, file="UCI_HAR_Dataset_Tidy.txt")
+write.table(dataSet, file="UCI_HAR_Dataset_Tidy.txt", row.names = FALSE)
 
 ## From the tidy dataset created above, we generate a second data set with the averages for each activity and subject
 dataSetGrouped <- dataSet %>% group_by(Activity, SubjectID)
 dataSetGrouped %>% summarize_all(mean)
 
 ## Save the grouped tidy data set to a file
-write.table(dataSetGrouped, file="UCI_HAR_Dataset_Tidy_Grouped.txt")
+write.table(dataSetGrouped, file="UCI_HAR_Dataset_Tidy_Grouped.txt", row.names = FALSE)
 
